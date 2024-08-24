@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "BUILDING.#####",
+ "creation": "2024-08-23 18:00:43.189026",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "building_name",
+  "service_type",
+  "service_provider_name",
+  "column_break_4",
+  "section_break_5",
+  "contact_name_1",
+  "contact_number_1",
+  "sp_email_addresses_1",
+  "column_break_11",
+  "contact_name_2",
+  "contact_number_2",
+  "sp_email_addresses_2",
+  "column_break_o2kpv",
+  "contact_name_3",
+  "contact_number_3",
+  "sp_email_addresses_3"
+ ],
+ "fields": [
+  {
+   "fieldname": "building_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Building Name",
+   "options": "Building Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Service Type",
+   "options": "Service",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_provider_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Service Executive",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_number_1",
+   "fieldtype": "Data",
+   "label": "Contact Number 1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contact_number_2",
+   "fieldtype": "Data",
+   "label": "Contact Number 2"
+  },
+  {
+   "fieldname": "contact_number_3",
+   "fieldtype": "Data",
+   "label": "Contact Number 3"
+  },
+  {
+   "fieldname": "sp_email_addresses_1",
+   "fieldtype": "Small Text",
+   "label": "SP Email Addresses 1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sp_email_addresses_2",
+   "fieldtype": "Small Text",
+   "label": "SP Email Addresses 2"
+  },
+  {
+   "fieldname": "sp_email_addresses_3",
+   "fieldtype": "Small Text",
+   "label": "SP Email Addresses 3"
+  },
+  {
+   "fieldname": "contact_name_1",
+   "fieldtype": "Data",
+   "label": "Contact Name 1"
+  },
+  {
+   "fieldname": "contact_name_2",
+   "fieldtype": "Data",
+   "label": "Contact Name 2"
+  },
+  {
+   "fieldname": "contact_name_3",
+   "fieldtype": "Data",
+   "label": "Contact Name 3"
+  },
+  {
+   "fieldname": "column_break_o2kpv",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-23 21:31:37.305625",
+ "modified_by": "Administrator",
+ "module": "istame",
+ "name": "Building",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "building_name,service_type",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

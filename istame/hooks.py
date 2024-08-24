@@ -5,6 +5,32 @@ app_description = "istame"
 app_email = "info@finbyz.tech"
 app_license = "MIT"
 
+
+doctype_js = {
+	"Issue": "public/js/doctype_js/issue.js",
+}
+doc_events = {
+    "Issue": {
+        "validate": "istame.api.issue_validate"
+    },
+    "Ista Middle East": {
+        "validate": "istame.istame.doc_events.ista_middle_east.validate"
+    }
+}
+
+scheduler_events = {
+	"cron": {
+		"0/1 * * * *": [
+			"istame.api.escalation_email",
+            "istame.api.istame_escalation_email",
+            "istame.api.istame_warning_email"
+		]
+	}
+	# "all":[
+	# 	"jciw.api.make_status_overdue"
+	# ]
+}
+
 # Includes in <head>
 # ------------------
 
@@ -186,26 +212,26 @@ app_license = "MIT"
 # User Data Protection
 # --------------------
 
-# user_data_fields = [
-# 	{
-# 		"doctype": "{doctype_1}",
-# 		"filter_by": "{filter_by}",
-# 		"redact_fields": ["{field_1}", "{field_2}"],
-# 		"partial": 1,
-# 	},
-# 	{
-# 		"doctype": "{doctype_2}",
-# 		"filter_by": "{filter_by}",
-# 		"partial": 1,
-# 	},
-# 	{
-# 		"doctype": "{doctype_3}",
-# 		"strict": False,
-# 	},
-# 	{
-# 		"doctype": "{doctype_4}"
-# 	}
-# ]
+user_data_fields = [
+	{
+		"doctype": "{doctype_1}",
+		"filter_by": "{filter_by}",
+		"redact_fields": ["{field_1}", "{field_2}"],
+		"partial": 1,
+	},
+	{
+		"doctype": "{doctype_2}",
+		"filter_by": "{filter_by}",
+		"partial": 1,
+	},
+	{
+		"doctype": "{doctype_3}",
+		"strict": False,
+	},
+	{
+		"doctype": "{doctype_4}"
+	}
+]
 
 # Authentication and authorization
 # --------------------------------

@@ -1,0 +1,119 @@
+{
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{primary_location} -  {service}",
+ "creation": "2021-04-16 10:38:21.689027",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "primary_location",
+  "secondary_location",
+  "column_break_3",
+  "service",
+  "contractor",
+  "section_break_6",
+  "escalation_1",
+  "escalation_2",
+  "escalation_3"
+ ],
+ "fields": [
+  {
+   "fieldname": "service",
+   "fieldtype": "Link",
+   "label": "Service",
+   "options": "Service"
+  },
+  {
+   "fieldname": "primary_location",
+   "fieldtype": "Link",
+   "label": "Primary Location",
+   "options": "Primary Location"
+  },
+  {
+   "fieldname": "contractor",
+   "fieldtype": "Link",
+   "label": "Contractor",
+   "options": "Contractor"
+  },
+  {
+   "fieldname": "escalation_1",
+   "fieldtype": "Table",
+   "label": "Escalation 1",
+   "options": "Escalation 1"
+  },
+  {
+   "fieldname": "escalation_2",
+   "fieldtype": "Table",
+   "label": "Escalation 2",
+   "options": "Escalation 2"
+  },
+  {
+   "fieldname": "escalation_3",
+   "fieldtype": "Table",
+   "label": "Escalation 3",
+   "options": "Escalation 3"
+  },
+  {
+   "fieldname": "secondary_location",
+   "fieldtype": "Link",
+   "label": "Secondary Location",
+   "options": "Secondary Location"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "modified": "2021-04-19 08:41:38.327356",
+ "modified_by": "Administrator",
+ "module": "istame",
+ "name": "Escalation Matrix",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Support Team",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

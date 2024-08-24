@@ -1,0 +1,227 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-08-23 15:45:29.489122",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "call_time",
+  "call_date",
+  "agent_name",
+  "contact_source",
+  "caller_name",
+  "caller_contact_number",
+  "caller_email",
+  "building_name",
+  "unit_number",
+  "service_type",
+  "priority",
+  "issue_description",
+  "sp_details_email",
+  "sp_contact_number",
+  "column_break_xhxr4",
+  "status",
+  "resolution_comments_by_ista_team",
+  "closed_by",
+  "closure_date_time",
+  "naming_series",
+  "are_you_satisfied_with_the_provided_resolution_",
+  "did_the_technician_response_on_time_",
+  "any_general_comments_to_improve_our_services",
+  "escalation_sent",
+  "warning_sent",
+  "total_hour",
+  "due_date_1",
+  "due_date_2"
+ ],
+ "fields": [
+  {
+   "default": "Now",
+   "fieldname": "call_time",
+   "fieldtype": "Time",
+   "label": "Call Time",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "call_date",
+   "fieldtype": "Date",
+   "label": "Call Date",
+   "read_only": 1
+  },
+  {
+   "default": "__user",
+   "fieldname": "agent_name",
+   "fieldtype": "Link",
+   "label": "Agent Name",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contact_source",
+   "fieldtype": "Select",
+   "label": "Contact Source",
+   "options": "\nCall\nEmail\nWhatsApp"
+  },
+  {
+   "fieldname": "caller_name",
+   "fieldtype": "Data",
+   "label": "Caller Name"
+  },
+  {
+   "fieldname": "caller_contact_number",
+   "fieldtype": "Data",
+   "label": "Caller Contact Number",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "caller_email",
+   "fieldtype": "Data",
+   "label": "Caller Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "building_name",
+   "fieldtype": "Link",
+   "label": "Building Name",
+   "options": "Building Name"
+  },
+  {
+   "fieldname": "unit_number",
+   "fieldtype": "Small Text",
+   "label": "Unit Number"
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Link",
+   "label": "Service Type",
+   "options": "Service"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "\nNormal\nMedium\nHigh"
+  },
+  {
+   "fieldname": "issue_description",
+   "fieldtype": "Small Text",
+   "label": "Issue Description"
+  },
+  {
+   "fieldname": "column_break_xhxr4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nIn Progress\nResolved"
+  },
+  {
+   "fieldname": "resolution_comments_by_ista_team",
+   "fieldtype": "Small Text",
+   "label": "Resolution Comments by ista Team "
+  },
+  {
+   "fieldname": "closed_by",
+   "fieldtype": "Data",
+   "label": "Closed By"
+  },
+  {
+   "fieldname": "closure_date_time",
+   "fieldtype": "Data",
+   "label": "Closure Date & Time"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "naming_series",
+   "options": "IME-"
+  },
+  {
+   "fieldname": "sp_details_email",
+   "fieldtype": "Small Text",
+   "label": "SP Details Email"
+  },
+  {
+   "fieldname": "sp_contact_number",
+   "fieldtype": "Data",
+   "label": "SP Contact Number"
+  },
+  {
+   "fieldname": "are_you_satisfied_with_the_provided_resolution_",
+   "fieldtype": "Select",
+   "label": "Are You Satisfied With The Provided Resolution ?",
+   "options": "\nSatisfied\nNot Satisfied"
+  },
+  {
+   "fieldname": "did_the_technician_response_on_time_",
+   "fieldtype": "Select",
+   "label": "Did the technician response on time ?",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "any_general_comments_to_improve_our_services",
+   "fieldtype": "Small Text",
+   "label": "Any general comments to improve our services? "
+  },
+  {
+   "default": "0",
+   "fieldname": "escalation_sent",
+   "fieldtype": "Data",
+   "label": "Escalation Sent"
+  },
+  {
+   "default": "0",
+   "fieldname": "warning_sent",
+   "fieldtype": "Data",
+   "label": "Warning Sent"
+  },
+  {
+   "fieldname": "total_hour",
+   "fieldtype": "Data",
+   "label": "Total Hour"
+  },
+  {
+   "fieldname": "due_date_1",
+   "fieldtype": "Datetime",
+   "label": "Due Date 1"
+  },
+  {
+   "fieldname": "due_date_2",
+   "fieldtype": "Datetime",
+   "label": "Due_Date 2"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-24 12:39:31.722825",
+ "modified_by": "Administrator",
+ "module": "istame",
+ "name": "Ista Middle East",
+ "name_case": "UPPER CASE",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
