@@ -133,15 +133,28 @@ def escalation_email():
 
 
 	
-def istame_escalation_email():
+def istame_overdue_email():
 	data = frappe.get_list("Ista Middle East",filters = {'status':['!=','resolved']},fields = ['name', 'building_name','service_type'])
 	for row in data:
 		doc = frappe.get_doc("Ista Middle East",row.name)
 		recipients = []
 		if doc.due_date_2 is not None and doc.due_date_2 <= datetime.now() and doc.escalation_sent == "0":
 				doc.db_set('escalation_sent', 1)
-				if doc.sp_details_email:
-					recipients = doc.sp_details_email.split(",\n")		
+				if doc.priority == "Medium":
+					building_name = frappe.get_value("Building",filters={'building_name': doc.building_name, 'service_type': doc.service_type},fieldname='name')
+					if building_name:
+						building_doc = frappe.get_doc("Building", building_name)					
+						recipients.append(building_doc.sp_email_addresses_1)
+						recipients.append(building_doc.sp_email_addresses_2)
+				elif doc.priority == "Medium":
+					building_name = frappe.get_value("Building",filters={'building_name': doc.building_name, 'service_type': doc.service_type},fieldname='name')
+					if building_name:
+						building_doc = frappe.get_doc("Building", building_name)					
+						recipients.append(building_doc.sp_email_addresses_1)
+						recipients.append(building_doc.sp_email_addresses_2)
+						recipients.append(building_doc.sp_email_addresses_3)
+				else:
+					recipients = doc.sp_email_addresses.split(",\n")
 				header = "<p>Dear {}</p>".format(row.building_name or 'Sir/Mam')
 				subject = "Escalation. Case Number {} Request due at : {}".format(row.name,now())
 				
