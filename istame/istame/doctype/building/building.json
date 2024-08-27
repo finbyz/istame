@@ -9,6 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "building_name",
+  "building_email",
   "service_type",
   "service_provider_name",
   "column_break_4",
@@ -16,7 +17,6 @@
   "contact_name_1",
   "contact_number_1",
   "sp_email_addresses_1",
-  "column_break_11",
   "contact_name_2",
   "contact_number_2",
   "sp_email_addresses_2",
@@ -43,10 +43,12 @@
    "reqd": 1
   },
   {
+   "fetch_from": "service_type.customer_service_agent",
    "fieldname": "service_provider_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Customer Service Executive",
+   "options": "User",
    "reqd": 1
   },
   {
@@ -58,21 +60,19 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "column_break_11",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "contact_number_1",
    "fieldtype": "Data",
-   "label": "Contact Number 1",
-   "reqd": 1
+   "hidden": 1,
+   "label": "Contact Number 1"
   },
   {
+   "fetch_from": "service_type.level_2_supervisor_contact",
    "fieldname": "contact_number_2",
    "fieldtype": "Data",
    "label": "Contact Number 2"
   },
   {
+   "fetch_from": "service_type.level_3_supervisor_contact",
    "fieldname": "contact_number_3",
    "fieldtype": "Data",
    "label": "Contact Number 3"
@@ -80,15 +80,17 @@
   {
    "fieldname": "sp_email_addresses_1",
    "fieldtype": "Small Text",
-   "label": "SP Email Addresses 1",
-   "reqd": 1
+   "hidden": 1,
+   "label": "SP Email Addresses 1"
   },
   {
+   "fetch_from": "service_type.level_2_supervisor_email",
    "fieldname": "sp_email_addresses_2",
    "fieldtype": "Small Text",
    "label": "SP Email Addresses 2"
   },
   {
+   "fetch_from": "service_type.level_3_supervisor_email",
    "fieldname": "sp_email_addresses_3",
    "fieldtype": "Small Text",
    "label": "SP Email Addresses 3"
@@ -96,14 +98,17 @@
   {
    "fieldname": "contact_name_1",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Contact Name 1"
   },
   {
+   "fetch_from": "service_type.level_2_supervisor_name",
    "fieldname": "contact_name_2",
    "fieldtype": "Data",
    "label": "Contact Name 2"
   },
   {
+   "fetch_from": "service_type.level_3_supervisor_name",
    "fieldname": "contact_name_3",
    "fieldtype": "Data",
    "label": "Contact Name 3"
@@ -111,11 +116,17 @@
   {
    "fieldname": "column_break_o2kpv",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "building_name.building_email_id",
+   "fieldname": "building_email",
+   "fieldtype": "Data",
+   "label": "Building Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-23 21:31:37.305625",
+ "modified": "2024-08-27 13:52:55.048447",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Building",

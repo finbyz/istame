@@ -8,7 +8,8 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "building_name"
+  "building_name",
+  "building_email_id"
  ],
  "fields": [
   {
@@ -18,11 +19,17 @@
    "label": "Building Name",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "building_email_id",
+   "fieldtype": "Data",
+   "label": "Building Email ID",
+   "options": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-23 17:58:24.654362",
+ "modified": "2024-08-27 13:06:39.362309",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Building Name",
