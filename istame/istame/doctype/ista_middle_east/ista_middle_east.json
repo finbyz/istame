@@ -144,6 +144,7 @@
    "options": "IME-"
   },
   {
+   "fetch_from": "building_name.building_email_id",
    "fieldname": "sp_details_email",
    "fieldtype": "Small Text",
    "label": "SP Details Email"
@@ -200,7 +201,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-24 12:39:31.722825",
+ "modified": "2024-08-28 13:28:00.325952",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",
