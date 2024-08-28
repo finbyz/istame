@@ -9,6 +9,8 @@
  "field_order": [
   "service",
   "customer_service_agent",
+  "column_break_yzxgn",
+  "customer_service_agent_email",
   "escalations_section",
   "level_2_supervisor_name",
   "level_3_supervisor_name",
@@ -77,10 +79,20 @@
    "fieldname": "level_3_supervisor_contact",
    "fieldtype": "Data",
    "label": "Level 3 Supervisor Contact"
+  },
+  {
+   "fieldname": "customer_service_agent_email",
+   "fieldtype": "Data",
+   "label": "Customer Service Agent Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "column_break_yzxgn",
+   "fieldtype": "Column Break"
   }
  ],
  "links": [],
- "modified": "2024-08-27 13:14:49.703704",
+ "modified": "2024-08-28 11:09:21.510856",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Service",
