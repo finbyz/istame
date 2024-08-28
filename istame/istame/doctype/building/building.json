@@ -12,6 +12,7 @@
   "building_email",
   "service_type",
   "service_provider_name",
+  "customer_service_executive_contact_no",
   "column_break_4",
   "section_break_5",
   "contact_name_1",
@@ -122,11 +123,18 @@
    "fieldname": "building_email",
    "fieldtype": "Data",
    "label": "Building Email"
+  },
+  {
+   "fetch_from": "service_type.customer_service_agent_contact_no",
+   "fieldname": "customer_service_executive_contact_no",
+   "fieldtype": "Data",
+   "label": "Customer Service Executive Contact No",
+   "options": "Phone"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-27 13:52:55.048447",
+ "modified": "2024-08-28 15:00:23.982728",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Building",

@@ -91,7 +91,7 @@
   },
   {
    "fieldname": "unit_number",
-   "fieldtype": "Small Text",
+   "fieldtype": "Data",
    "label": "Unit Number"
   },
   {
@@ -175,33 +175,38 @@
    "default": "0",
    "fieldname": "escalation_sent",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Escalation Sent"
   },
   {
    "default": "0",
    "fieldname": "warning_sent",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Warning Sent"
   },
   {
    "fieldname": "total_hour",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Total Hour"
   },
   {
    "fieldname": "due_date_1",
    "fieldtype": "Datetime",
+   "hidden": 1,
    "label": "Due Date 1"
   },
   {
    "fieldname": "due_date_2",
    "fieldtype": "Datetime",
+   "hidden": 1,
    "label": "Due_Date 2"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 13:28:00.325952",
+ "modified": "2024-08-28 15:12:58.721294",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",

@@ -11,6 +11,7 @@
   "customer_service_agent",
   "column_break_yzxgn",
   "customer_service_agent_email",
+  "customer_service_agent_contact_no",
   "escalations_section",
   "level_2_supervisor_name",
   "level_3_supervisor_name",
@@ -89,10 +90,16 @@
   {
    "fieldname": "column_break_yzxgn",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_service_agent_contact_no",
+   "fieldtype": "Data",
+   "label": "Customer Service Agent Contact No",
+   "options": "Phone"
   }
  ],
  "links": [],
- "modified": "2024-08-28 11:09:21.510856",
+ "modified": "2024-08-28 14:58:24.859587",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Service",
