@@ -42,74 +42,89 @@
    "default": "Now",
    "fieldname": "call_time",
    "fieldtype": "Time",
+   "in_list_view": 1,
    "label": "Call Time",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "default": "Today",
    "fieldname": "call_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Call Date",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "default": "__user",
    "fieldname": "agent_name",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Agent Name",
    "options": "User",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "contact_source",
    "fieldtype": "Select",
    "label": "Contact Source",
-   "options": "\nCall\nEmail\nWhatsApp"
+   "options": "\nCall\nEmail\nWhatsApp",
+   "reqd": 1
   },
   {
    "fieldname": "caller_name",
    "fieldtype": "Data",
-   "label": "Caller Name"
+   "label": "Caller Name",
+   "reqd": 1
   },
   {
    "fieldname": "caller_contact_number",
    "fieldtype": "Data",
    "label": "Caller Contact Number",
-   "options": "Phone"
+   "options": "Phone",
+   "reqd": 1
   },
   {
    "fieldname": "caller_email",
    "fieldtype": "Data",
    "label": "Caller Email",
-   "options": "Email"
+   "options": "Email",
+   "reqd": 1
   },
   {
    "fieldname": "building_name",
    "fieldtype": "Link",
    "label": "Building Name",
-   "options": "Building Name"
+   "options": "Building Name",
+   "reqd": 1
   },
   {
    "fieldname": "unit_number",
    "fieldtype": "Data",
-   "label": "Unit Number"
+   "label": "Unit Number",
+   "reqd": 1
   },
   {
    "fieldname": "service_type",
    "fieldtype": "Link",
    "label": "Service Type",
-   "options": "Service"
+   "options": "Service",
+   "reqd": 1
   },
   {
    "fieldname": "priority",
    "fieldtype": "Select",
    "label": "Priority",
-   "options": "\nNormal\nMedium\nHigh"
+   "options": "\nNormal\nMedium\nHigh",
+   "reqd": 1
   },
   {
    "fieldname": "issue_description",
    "fieldtype": "Small Text",
-   "label": "Issue Description"
+   "label": "Issue Description",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_xhxr4",
@@ -147,12 +162,14 @@
    "fetch_from": "building_name.building_email_id",
    "fieldname": "sp_details_email",
    "fieldtype": "Small Text",
-   "label": "SP Details Email"
+   "label": "SP Details Email",
+   "reqd": 1
   },
   {
    "fieldname": "sp_contact_number",
    "fieldtype": "Data",
-   "label": "SP Contact Number"
+   "label": "SP Contact Number",
+   "reqd": 1
   },
   {
    "fieldname": "are_you_satisfied_with_the_provided_resolution_",
@@ -206,7 +223,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 17:28:12.173785",
+ "modified": "2024-08-28 17:47:04.787952",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",
