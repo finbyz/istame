@@ -16,6 +16,7 @@
   "caller_contact_number",
   "caller_email",
   "building_name",
+  "building_email",
   "unit_number",
   "service_type",
   "priority",
@@ -159,13 +160,14 @@
    "options": "IME-"
   },
   {
-   "fetch_from": "building_name.building_email_id",
+   "fetch_from": "service_type.customer_service_agent_email",
    "fieldname": "sp_details_email",
    "fieldtype": "Small Text",
    "label": "SP Details Email",
    "reqd": 1
   },
   {
+   "fetch_from": "service_type.customer_service_agent_contact_no",
    "fieldname": "sp_contact_number",
    "fieldtype": "Data",
    "label": "SP Contact Number",
@@ -219,11 +221,19 @@
    "fieldtype": "Datetime",
    "hidden": 1,
    "label": "Due_Date 2"
+  },
+  {
+   "fetch_from": "building_name.building_email_id",
+   "fieldname": "building_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Building Email",
+   "options": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 17:47:04.787952",
+ "modified": "2024-08-29 13:46:26.209189",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",
