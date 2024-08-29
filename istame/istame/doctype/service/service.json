@@ -53,7 +53,7 @@
   },
   {
    "fieldname": "level_2_supervisor_email",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Level 2 Supervisor Email",
    "options": "Email"
   },
@@ -73,7 +73,7 @@
   },
   {
    "fieldname": "level_3_supervisor_email",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Level 3 Supervisor Email"
   },
   {
@@ -99,7 +99,7 @@
   }
  ],
  "links": [],
- "modified": "2024-08-28 14:58:24.859587",
+ "modified": "2024-08-29 14:28:14.762608",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Service",
