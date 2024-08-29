@@ -135,7 +135,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Open\nIn Progress\nResolved"
+   "options": "Open\nIn Progress\nResolved\nClosed"
   },
   {
    "fieldname": "resolution_comments_by_ista_team",
@@ -233,7 +233,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-29 13:46:26.209189",
+ "modified": "2024-08-29 14:32:26.184760",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",
