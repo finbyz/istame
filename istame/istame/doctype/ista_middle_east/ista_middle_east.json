@@ -97,7 +97,7 @@
    "fieldname": "building_name",
    "fieldtype": "Link",
    "label": "Building Name",
-   "options": "Building Name",
+   "options": "Building",
    "reqd": 1
   },
   {
@@ -117,7 +117,7 @@
    "fieldname": "priority",
    "fieldtype": "Select",
    "label": "Priority",
-   "options": "\nNormal\nMedium\nHigh",
+   "options": "\nNormal\nMedium\nHigh\nCritical",
    "reqd": 1
   },
   {
@@ -159,7 +159,7 @@
    "options": "IME-"
   },
   {
-   "fetch_from": "service_type.customer_service_agent_email",
+   "fetch_from": "building_name.service_provider_name",
    "fieldname": "sp_details_email",
    "fieldtype": "Link",
    "label": "SP Details Email",
@@ -167,7 +167,8 @@
    "reqd": 1
   },
   {
-   "fetch_from": "service_type.customer_service_agent_contact_no",
+   "fetch_from": "building_name.customer_service_executive_contact_no",
+   "fetch_if_empty": 1,
    "fieldname": "sp_contact_number",
    "fieldtype": "Data",
    "label": "SP Contact Number",
@@ -223,7 +224,7 @@
    "label": "Due_Date 2"
   },
   {
-   "fetch_from": "building_name.building_email_id",
+   "fetch_from": "building_name.building_email",
    "fieldname": "building_email",
    "fieldtype": "Data",
    "hidden": 1,
@@ -233,7 +234,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-30 11:11:18.335832",
+ "modified": "2024-08-30 14:14:57.614935",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",

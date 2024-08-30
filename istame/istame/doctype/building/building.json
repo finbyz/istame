@@ -134,7 +134,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 15:00:23.982728",
+ "modified": "2024-08-30 14:17:33.481965",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Building",
@@ -158,5 +158,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "building_name",
  "track_changes": 1
 }

@@ -144,52 +144,33 @@ def istame_overdue_email():
 					recipients = doc.sp_details_email.split(",\n")
 				level_2_supervisor_email = frappe.get_value("Service",filters={'name': doc.service_type},fieldname='level_2_supervisor_email')					
 				recipients.append(level_2_supervisor_email)
-				header = "<p>Dear {}</p>".format(row.building_name or 'Sir/Mam')
-				subject = "Escalation. Case Number {} Request due at : {}".format(row.name,now())
+				header = "<p>This is a warning notification for a second response time getting overdue at {}</p>".format(doc.due_date_2.strftime('%B %d %Y, %I:%M %p'))
+				subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_2.strftime('%B %d %Y, %I:%M %p'))
 				
 				
 				body = """
-				<p> This is to notify that the Ticket {} has been open for 12 hours. Please take action.</p>	
-					<table style="height: 82px;" border="1" width="100%">
-						<tbody>
-							<tr>
-								<td width="50%"><p>Building Name:</p></td>
-								<td width="50%"><p>{}</p></td>
-							</tr>
-							<tr>
-								<td width="50%"><p>Unit / Villa Number:</p></td>
-								<td width="50%"><p>{}</p></td>
-							</tr>
-							<tr>
-								<td width="50%"><p>Service Type:</p></td>
-								<td width="50%"><p>{}</p></td>
-							</tr>
-							<tr>
-								<td width="50%"><p>Client Name:</p></td>
-								<td width="50%"><p>{}</p></td>
-							</tr>
-							<tr>
-								<td width="50%"><p>Client Contact Number:</p></td>
-								<td width="50%"><p>{}</p></td>
-							</tr>
-							 <tr>
-								<td width="50%"><p>Description:</p></td>
-								<td width="50%"><p>{}</p></td>
-							</tr>
-						</tbody>  
-					</table>
-					<p>Please <a href="/desk#Form/Issue/{}">Click here</a> to view more details on the ticket. Make sure you update the status after you have completed the work.</p>
-					<p><b>Note: </b>Do not respond to this email as this is system generated. If you have any questions then call +971 60 055 5667. </p>
-				""".format(
-					doc.name,
-					doc.building_name or '',
-					doc.unit_number or '',
-					doc.service_type or '',
-					doc.caller_name or '',
-					doc.caller_contact_number or '',
-					doc.issue_description or '',
-					doc.name
+				<p> This is to notify that the Ticket {} has been open for 24 hours. Please take action.</p>	
+					<ul>
+					<li>Caller Name</li> : {0}
+					<li>Contact Source</li> : {1}
+					<li>Caller Contact No</li> : {2}
+					<li>Caller Email</li> : {3}
+					<li>Building Name</li> : {4}
+					<li>Unit Number</li> : {5}
+					<li>Service Type</li> : {6}
+					<li>Priority</li> : {7}
+					</ul>
+            """.format(
+					doc.caller_name or '', 
+					doc.contact_source or '', 
+					doc.caller_contact_number or '', 
+					doc.caller_email or '', 
+					doc.building_name or '', 
+					doc.unit_number or '', 
+					doc.service_type or '', 
+					doc.priority or ''
 				)
+
 				message = header + body
 				if recipients:
 					try:
@@ -215,50 +196,30 @@ def istame_warning_email():
 					recipients = doc.sp_details_email.split(",\n")
 				level_2_supervisor_email = frappe.get_value("Service",filters={'name': doc.service_type},fieldname='level_2_supervisor_email')					
 				recipients.append(level_2_supervisor_email)
-				header = "<p>Dear {}</p>".format(row.building_name or 'Sir/Mam')
-				subject = "Escalation. Case Number {} Request due at : {}".format(row.name,now())
+				header = "<p>This is a warning notification for a first response time getting overdue at {}</p>".format(doc.due_date_1.strftime('%B %d %Y, %I:%M %p'))
+				subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_1.strftime('%B %d %Y, %I:%M %p'))
 				
 				body = """
-				<p> This is to notify that the Ticket {} has been open for 12 hours. Please take action.</p>	
-					<table style="height: 82px;" border="1" width="100%">
-						<tbody>
-							<tr>
-								<td width="50%"><p>Building Name:</p></td>
-								<td width="50%"><p>{}</p></td>
-							</tr>
-							<tr>
-								<td width="50%"><p>Unit / Villa Number:</p></td>
-								<td width="50%"><p>{}</p></td>
-							</tr>
-							<tr>
-								<td width="50%"><p>Service Type:</p></td>
-								<td width="50%"><p>{}</p></td>
-							</tr>
-							<tr>
-								<td width="50%"><p>Client Name:</p></td>
-								<td width="50%"><p>{}</p></td>
-							</tr>
-							<tr>
-								<td width="50%"><p>Client Contact Number:</p></td>
-								<td width="50%"><p>{}</p></td>
-							</tr>
-							 <tr>
-								<td width="50%"><p>Description:</p></td>
-								<td width="50%"><p>{}</p></td>
-							</tr>
-						</tbody>  
-					</table>
-					<p>Please <a href="/desk#Form/Issue/{}">Click here</a> to view more details on the ticket. Make sure you update the status after you have completed the work.</p>
-					<p><b>Note: </b>Do not respond to this email as this is system generated. If you have any questions then call +971 60 055 5667. </p>
-				""".format(
-					doc.name,
-					doc.building_name or '',
-					doc.unit_number or '',
-					doc.service_type or '',
-					doc.caller_name or '',
-					doc.caller_contact_number or '',
-					doc.issue_description or '',
-					doc.name
+					<p> This is to notify that the Ticket {} has been open for 20 hours. Please take action.</p>
+					<ul>
+					<li>Caller Name</li> : {0}
+					<li>Contact Source</li> : {1}
+					<li>Caller Contact No</li> : {2}
+					<li>Caller Email</li> : {3}
+					<li>Building Name</li> : {4}
+					<li>Unit Number</li> : {5}
+					<li>Service Type</li> : {6}
+					<li>Priority</li> : {7}
+					</ul>
+			""".format(
+					doc.caller_name or '', 
+					doc.contact_source or '', 
+					doc.caller_contact_number or '', 
+					doc.caller_email or '', 
+					doc.building_name or '', 
+					doc.unit_number or '', 
+					doc.service_type or '', 
+					doc.priority or ''
 				)
 				message = header + body
 				if recipients:

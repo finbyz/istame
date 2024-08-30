@@ -38,19 +38,24 @@ def send_new_ticket_email(self, method):
     if self.status == "Open":
             recipients = []
             if self.sp_details_email:
-                recipients = self.sp_details_email.split(",\n")
-                if self.priority == "Medium":
-                    level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
-                    recipients.append(level2email),
-                if self.priority == "High":
-                    level3email = frappe.get_value("Service", self.service_type, "level_3_supervisor_email")
-                    level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
-                    recipients.append(level2email),
-                    recipients.append(level3email),
+                if self.priority == "Critical" and self.service_type ==  "Regulatory Adherence Queries":
+                    cri_email = frappe.get_value("Service", self.service_type, "customer_service_agent")
+                    recipients.append(cri_email),
+                else:
+                    recipients = self.sp_details_email.split(",\n")
+                    recipients.append(self.building_email),
+                    if self.priority == "Medium":
+                        level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
+                        recipients.append(level2email),
+                    if self.priority == "High":
+                        level3email = frappe.get_value("Service", self.service_type, "level_3_supervisor_email")
+                        level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
+                        recipients.append(level2email),
+                        recipients.append(level3email),
+                frappe.throw(f"recipients : {recipients}")
             header = "<p>Dear 'Sir/Mam'</p>"
-            subject = "Escalation. Case Number {} Request due at : {}".format(self.name ,datetime.now().__format__('%Y-%m-%d %H:%M:%S'))
+            subject = "{0} - {1} - {2}".format(self.building_name , self.unit_number, self.service_type)
             body = """
-            <p> This is to notify that the Ticket  has been open for 12 hours. Please take action.</p>	
                 <table style="height: 82px;" border="1" width="100%">
                     <tbody>
                         <tr>
@@ -107,8 +112,6 @@ def send_new_ticket_email(self, method):
                         </tr>
                     </tbody>  
                 </table>
-                <p>Please <a href="/desk#Form/Issue/">Click here</a> to view more details on the ticket. Make sure you update the status after you have completed the work.</p>
-                <p><b>Note: </b>Do not respond to this email as this is system generated. If you have any questions then call +971 60 055 5667. </p>
             """.format(self.call_time, self.call_date, self.agent_name, self.contact_source, self.caller_name, self.caller_contact_number, self.caller_email, self.building_name, self.unit_number, self.service_type, self.priority, self.issue_description)
             message = header + body
             if recipients:
@@ -124,65 +127,65 @@ def send_new_ticket_email(self, method):
                 except:
                     frappe.log_error(f"Email is not sent : {recipients}")
 
-# def send_closed_ticket_email(self, method):
-#        if self.status == "Closed":
-#             recipients = []
-#             if self.caller_email:
-#                     recipients.append(self.caller_email),
+def send_closed_ticket_email(self, method):
+       if self.status == "Closed":
+            recipients = []
+            if self.caller_email:
+                recipients.append(self.caller_email),
             
-#             header = "<p>Dear 'Sir/Mam'</p>"
-#             subject = "Escalation. Case Number {} Request due at : {}".format(self.name ,datetime.now().__format__('%Y-%m-%d %H:%M:%S'))
-#             body = """
-#             <p> This is to notify that the Ticket  has been open for 12 hours. Please take action.</p>	
-#                 <table style="height: 82px;" border="1" width="100%">
-#                     <tbody>
-#                         <tr>
-#                             <td width="50%"><p>Zone:</p></td>
-#                             <td width="50%"><p></p></td>
-#                         </tr>
-#                         <tr>
-#                             <td width="50%"><p>Area:</p></td>
-#                             <td width="50%"><p></p></td>
-#                         </tr>
-#                         <tr>
-#                             <td width="50%"><p>Building Name:</p></td>
-#                             <td width="50%"><p></p></td>
-#                         </tr>
-#                         <tr>
-#                             <td width="50%"><p>Unit / Villa Number:</p></td>
-#                             <td width="50%"><p></p></td>
-#                         </tr>
-#                         <tr>
-#                             <td width="50%"><p>Service Type:</p></td>
-#                             <td width="50%"><p></p></td>
-#                         </tr>
-#                         <tr>
-#                             <td width="50%"><p>Client Name:</p></td>
-#                             <td width="50%"><p></p></td>
-#                         </tr>
-#                         <tr>
-#                             <td width="50%"><p>Client Contact Number:</p></td>
-#                             <td width="50%"><p></p></td>
-#                         </tr>
-#                             <tr>
-#                             <td width="50%"><p>Description:</p></td>
-#                             <td width="50%"><p></p></td>
-#                         </tr>
-#                     </tbody>  
-#                 </table>
-#                 <p>Please <a href="/desk#Form/Issue/">Click here</a> to view more details on the ticket. Make sure you update the status after you have completed the work.</p>
-#                 <p><b>Note: </b>Do not respond to this email as this is system generated. If you have any questions then call +971 60 055 5667. </p>
-#             """
-#             message = header + body
-#             if recipients:
-#                 try:
-#                     frappe.sendmail(
-#                         recipients=recipients,
-#                         cc = '',
-#                         subject = subject ,
-#                         #sender = sender,
-#                         message = message,
-#                         now = 1
-#                     )
-#                 except:
-#                     frappe.log_error(f"Email is not sent : {recipients}")
+            header = "<p>Dear 'Sir/Mam'</p>"
+            subject = "Escalation. Case Number {} Request due at : {}".format(self.name ,datetime.now().__format__('%Y-%m-%d %H:%M:%S'))
+            body = """
+            <p> This is to notify that the Ticket  has been open for 12 hours. Please take action.</p>	
+                <table style="height: 82px;" border="1" width="100%">
+                    <tbody>
+                        <tr>
+                            <td width="50%"><p>Zone:</p></td>
+                            <td width="50%"><p></p></td>
+                        </tr>
+                        <tr>
+                            <td width="50%"><p>Area:</p></td>
+                            <td width="50%"><p></p></td>
+                        </tr>
+                        <tr>
+                            <td width="50%"><p>Building Name:</p></td>
+                            <td width="50%"><p></p></td>
+                        </tr>
+                        <tr>
+                            <td width="50%"><p>Unit / Villa Number:</p></td>
+                            <td width="50%"><p></p></td>
+                        </tr>
+                        <tr>
+                            <td width="50%"><p>Service Type:</p></td>
+                            <td width="50%"><p></p></td>
+                        </tr>
+                        <tr>
+                            <td width="50%"><p>Client Name:</p></td>
+                            <td width="50%"><p></p></td>
+                        </tr>
+                        <tr>
+                            <td width="50%"><p>Client Contact Number:</p></td>
+                            <td width="50%"><p></p></td>
+                        </tr>
+                            <tr>
+                            <td width="50%"><p>Description:</p></td>
+                            <td width="50%"><p></p></td>
+                        </tr>
+                    </tbody>  
+                </table>
+                <p>Please <a href="/desk#Form/Issue/">Click here</a> to view more details on the ticket. Make sure you update the status after you have completed the work.</p>
+                <p><b>Note: </b>Do not respond to this email as this is system generated. If you have any questions then call +971 60 055 5667. </p>
+            """
+            message = header + body
+            if recipients:
+                try:
+                    frappe.sendmail(
+                        recipients=recipients,
+                        cc = '',
+                        subject = subject ,
+                        #sender = sender,
+                        message = message,
+                        now = 1
+                    )
+                except:
+                    frappe.log_error(f"Email is not sent : {recipients}")
