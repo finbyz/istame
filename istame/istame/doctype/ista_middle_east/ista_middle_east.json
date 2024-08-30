@@ -60,10 +60,9 @@
   {
    "default": "__user",
    "fieldname": "agent_name",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Agent Name",
-   "options": "User",
    "read_only": 1,
    "reqd": 1
   },
@@ -162,8 +161,9 @@
   {
    "fetch_from": "service_type.customer_service_agent_email",
    "fieldname": "sp_details_email",
-   "fieldtype": "Small Text",
+   "fieldtype": "Link",
    "label": "SP Details Email",
+   "options": "User",
    "reqd": 1
   },
   {
@@ -233,7 +233,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-29 14:32:26.184760",
+ "modified": "2024-08-30 11:11:18.335832",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",
