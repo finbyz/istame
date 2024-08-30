@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_import": 1,
- "autoname": "BUILDING.#####",
+ "autoname": "field:building_name",
  "creation": "2024-08-23 18:00:43.189026",
  "default_view": "List",
  "doctype": "DocType",
@@ -33,7 +33,8 @@
    "in_list_view": 1,
    "label": "Building Name",
    "options": "Building Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "service_type",
@@ -134,11 +135,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-30 14:17:33.481965",
+ "modified": "2024-08-30 18:08:55.618873",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Building",
- "naming_rule": "Expression (old style)",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
