@@ -135,48 +135,16 @@ def send_closed_ticket_email(self, method):
             if self.caller_email:
                 recipients.append(self.caller_email),
             
-            header = "<p>Dear 'Sir/Mam'</p>"
-            subject = "Escalation. Case Number {} Request due at : {}".format(self.name ,datetime.now().__format__('%Y-%m-%d %H:%M:%S'))
+            header = "<p>Dear Esteemed Customer,</p>"
+            subject = "{0} - {1} - {2}".format(self.building_name , self.unit_number, self.service_type)
             body = """
-            <p> This is to notify that the Ticket  has been open for 12 hours. Please take action.</p>	
-                <table style="height: 82px;" border="1" width="100%">
-                    <tbody>
-                        <tr>
-                            <td width="50%"><p>Zone:</p></td>
-                            <td width="50%"><p></p></td>
-                        </tr>
-                        <tr>
-                            <td width="50%"><p>Area:</p></td>
-                            <td width="50%"><p></p></td>
-                        </tr>
-                        <tr>
-                            <td width="50%"><p>Building Name:</p></td>
-                            <td width="50%"><p></p></td>
-                        </tr>
-                        <tr>
-                            <td width="50%"><p>Unit / Villa Number:</p></td>
-                            <td width="50%"><p></p></td>
-                        </tr>
-                        <tr>
-                            <td width="50%"><p>Service Type:</p></td>
-                            <td width="50%"><p></p></td>
-                        </tr>
-                        <tr>
-                            <td width="50%"><p>Client Name:</p></td>
-                            <td width="50%"><p></p></td>
-                        </tr>
-                        <tr>
-                            <td width="50%"><p>Client Contact Number:</p></td>
-                            <td width="50%"><p></p></td>
-                        </tr>
-                            <tr>
-                            <td width="50%"><p>Description:</p></td>
-                            <td width="50%"><p></p></td>
-                        </tr>
-                    </tbody>  
-                </table>
-                <p>Please <a href="/desk#Form/Issue/">Click here</a> to view more details on the ticket. Make sure you update the status after you have completed the work.</p>
-                <p><b>Note: </b>Do not respond to this email as this is system generated. If you have any questions then call +971 60 055 5667. </p>
+            <p> We’re pleased to inform you that your query has been resolved. 
+            If you have any additional questions or need further assistance, 
+            please don’t hesitate to reach out to us at <a href="csuae@ista.com"</a></p><br><br>
+
+            <p>We’d also appreciate your feedback! Please consider leaving a review on our profile: https://g.page/r/Ccx8PKWRbag-EAE/review</p> <br><br>
+            <p>Thank you for choosing ista Middle East FZE.</p>
+            
             """
             message = header + body
             if recipients:
