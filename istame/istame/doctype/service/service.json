@@ -12,6 +12,7 @@
   "column_break_yzxgn",
   "customer_service_agent_email",
   "customer_service_agent_contact_no",
+  "high_priority_email",
   "escalations_section",
   "level_2_supervisor_name",
   "level_3_supervisor_name",
@@ -96,10 +97,15 @@
    "fieldtype": "Data",
    "label": "Customer Service Agent Contact No",
    "options": "Phone"
+  },
+  {
+   "fieldname": "high_priority_email",
+   "fieldtype": "Small Text",
+   "label": "High Priority Email"
   }
  ],
  "links": [],
- "modified": "2024-08-29 14:28:14.762608",
+ "modified": "2024-09-04 14:23:48.184744",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Service",

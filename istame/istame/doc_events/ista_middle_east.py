@@ -51,10 +51,10 @@ def send_new_ticket_email(self, method):
                         recipients.append(self.sp_details_email),
                     if self.priority == "High":
                         # level3email = frappe.get_value("Service", self.service_type, "level_3_supervisor_email")
-                        # level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
+                        high_priority_email = frappe.get_value("Service", self.service_type, "high_priority_email")
                         # recipients.append(level2email),
                         # recipients.append(level3email),
-                        recipients.append("csuae@ista.com"),
+                        recipients.append(high_priority_email),
                     if self.priority == "Overdue From One Week":
                         level3email = frappe.get_value("Service", self.service_type, "level_3_supervisor_email")
                         recipients.append(level3email),
