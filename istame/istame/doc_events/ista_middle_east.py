@@ -110,6 +110,11 @@ def send_new_ticket_email(self, method):
                         </tr>
                         </tr>
                             <tr>
+                            <td width="50%"><p>City/Country:</p></td>
+                            <td width="50%"><p>{}</p></td>
+                        </tr>
+                        </tr>
+                            <tr>
                             <td width="50%"><p>Service Type:</p></td>
                             <td width="50%"><p>{}</p></td>
                         </tr>
@@ -125,7 +130,7 @@ def send_new_ticket_email(self, method):
                         </tr>
                     </tbody>  
                 </table>
-            """.format(self.name, self.call_time, self.call_date, self.agent_name, self.contact_source, self.caller_name, self.caller_contact_number, self.caller_email, self.building_name, self.unit_number, self.service_type, self.priority, self.issue_description)
+            """.format(self.name, self.call_time, self.call_date, self.agent_name, self.contact_source, self.caller_name, self.caller_contact_number, self.caller_email, self.building_name, self.unit_number,self.citycountry, self.service_type, self.priority, self.issue_description)
             message = header + body
             if recipients:
                 try:
