@@ -18,6 +18,7 @@
   "building_name",
   "building_email",
   "unit_number",
+  "citycountry",
   "service_type",
   "priority",
   "issue_description",
@@ -117,7 +118,7 @@
    "fieldname": "priority",
    "fieldtype": "Select",
    "label": "Priority",
-   "options": "\nNormal\nMedium\nHigh\nCritical",
+   "options": "\nNormal\nMedium\nHigh\nOverdue From One Week\nCritical",
    "reqd": 1
   },
   {
@@ -230,11 +231,18 @@
    "hidden": 1,
    "label": "Building Email",
    "options": "Email"
+  },
+  {
+   "fieldname": "citycountry",
+   "fieldtype": "Select",
+   "label": "City/Country",
+   "options": "\nDubai\nAbu Dhabi\nSharjah\nQatar",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-30 14:14:57.614935",
+ "modified": "2024-09-04 12:16:34.304440",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",

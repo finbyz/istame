@@ -42,16 +42,23 @@ def send_new_ticket_email(self, method):
                     cri_email = frappe.get_value("Service", self.service_type, "customer_service_agent")
                     recipients.append(cri_email),
                 else:
-                    recipients = self.sp_details_email.split(",\n")
-                    recipients.append(self.building_email),
+                    if self.priority == "Normal":
+                    # recipients = self.sp_details_email.split(",\n")
+                        recipients.append(self.building_email),
                     if self.priority == "Medium":
-                        level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
-                        recipients.append(level2email),
+                        # level1email = self.sp_details_email.split(",\n")
+                        # level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
+                        recipients.append(self.sp_details_email),
                     if self.priority == "High":
+                        # level3email = frappe.get_value("Service", self.service_type, "level_3_supervisor_email")
+                        # level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
+                        # recipients.append(level2email),
+                        # recipients.append(level3email),
+                        recipients.append("csuae@ista.com"),
+                    if self.priority == "Overdue From One Week":
                         level3email = frappe.get_value("Service", self.service_type, "level_3_supervisor_email")
-                        level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
-                        recipients.append(level2email),
                         recipients.append(level3email),
+                        recipients.append(self.building_email),
                 if self.priority == "Critical" and self.service_type !=  "Regulatory Adherence Queries":
                     frappe.throw("You Can Set Priority Critical only for Regulatory Adherence Queries")
                 # frappe.throw(f"recipients : {recipients}")
