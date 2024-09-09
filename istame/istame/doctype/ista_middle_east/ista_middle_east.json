@@ -145,12 +145,12 @@
   {
    "fieldname": "closed_by",
    "fieldtype": "Data",
-   "label": "Closed By"
+   "label": "Resolved By"
   },
   {
    "fieldname": "closure_date_time",
    "fieldtype": "Data",
-   "label": "Closure Date & Time"
+   "label": "Resolved Date & Time"
   },
   {
    "fieldname": "naming_series",
@@ -242,7 +242,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-04 12:16:34.304440",
+ "modified": "2024-09-09 12:12:31.073056",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",

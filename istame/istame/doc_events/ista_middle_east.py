@@ -12,7 +12,7 @@ def validate(self, method):
     # send_closed_ticket_email(self, method)
 	
 def set_closed_by(self, method):
-    if self.status == "Closed":
+    if self.status == "Resolved":
         self.closed_by = frappe.session.user
         self.closure_date_time = frappe.utils.now()
     else:
