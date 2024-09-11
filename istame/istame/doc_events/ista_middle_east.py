@@ -9,7 +9,7 @@ def validate(self, method):
     calculate_due_date(self, method)
     set_closed_by(self, method)
     send_new_ticket_email(self, method)
-    # send_closed_ticket_email(self, method)
+    send_closed_ticket_email(self, method)
 	
 def set_closed_by(self, method):
     if self.status == "Resolved":
