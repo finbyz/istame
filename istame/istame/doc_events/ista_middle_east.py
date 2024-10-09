@@ -48,18 +48,19 @@ def send_new_ticket_email(self, method):
                         # level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
                         recipients.append(self.sp_details_email),
                     if self.priority == "High":
-                        # level3email = frappe.get_value("Service", self.service_type, "level_3_supervisor_email")
-                        high_priority_email = frappe.get_value("Service", self.service_type, "high_priority_email")
+                        level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
+                        # high_priority_email = frappe.get_value("Service", self.service_type, "high_priority_email")
                         # recipients.append(level2email),
                         # recipients.append(level3email),
-                        recipients.append(high_priority_email),
+                        recipients.append(level2email),
                     if self.priority == "Overdue From One Week":
+                        level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
                         level3email = frappe.get_value("Service", self.service_type, "level_3_supervisor_email")
                         recipients.append(level3email),
-                        recipients.append(self.building_email),
+                        recipients.append(level2email),
                 if self.priority == "Critical" and self.service_type !=  "Regulatory Adherence Queries":
                     frappe.throw("You Can Set Priority Critical only for Regulatory Adherence Queries")
-                # frappe.throw(f"recipients : {recipients}")
+
             header = "<p>Dear 'Sir/Mam'</p>"
             subject = "{0} - {1} - {2}".format(self.building_name , self.unit_number, self.service_type)
             body = """
