@@ -10,6 +10,7 @@
  "field_order": [
   "building_name",
   "building_email",
+  "city",
   "service_type",
   "service_provider_name",
   "customer_service_executive_contact_no",
@@ -131,11 +132,17 @@
    "fieldtype": "Data",
    "label": "Customer Service Executive Contact No",
    "options": "Phone"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Select",
+   "label": "City",
+   "options": "\nDubai\nAbu Dhabi\nSharjah\nQatar"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-30 18:08:55.618873",
+ "modified": "2024-10-21 15:53:54.077970",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Building",
