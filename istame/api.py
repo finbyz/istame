@@ -160,6 +160,7 @@ def istame_overdue_email():
 					<li>Unit Number</li> : {5}
 					<li>Service Type</li> : {6}
 					<li>Priority</li> : {7}
+					<li>Building Number</li>:{8}
 					</ul>
             """.format(
 					doc.caller_name or '', 
@@ -169,7 +170,8 @@ def istame_overdue_email():
 					doc.building_name or '', 
 					doc.unit_number or '', 
 					doc.service_type or '', 
-					doc.priority or ''
+					doc.priority or '',
+					doc.custom_building_number or ''
 				)
 
 				message = header + body
@@ -211,6 +213,7 @@ def istame_warning_email():
 					<li>Unit Number</li> : {5}
 					<li>Service Type</li> : {6}
 					<li>Priority</li> : {7}
+     				<li>Building Number</li>:{8}
 					</ul>
 			""".format(
 					doc.caller_name or '', 
@@ -220,7 +223,8 @@ def istame_warning_email():
 					doc.building_name or '', 
 					doc.unit_number or '', 
 					doc.service_type or '', 
-					doc.priority or ''
+					doc.priority or '',
+					doc.custom_building_number or ""
 				)
 				message = header + body
 				if recipients:
