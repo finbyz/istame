@@ -164,8 +164,7 @@
    "fieldname": "sp_details_email",
    "fieldtype": "Link",
    "label": "SP Details Email",
-   "options": "User",
-   "reqd": 1
+   "options": "User"
   },
   {
    "fetch_from": "building_name.customer_service_executive_contact_no",
@@ -242,7 +241,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-21 16:45:41.315963",
+ "modified": "2024-10-22 14:26:32.303769",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",

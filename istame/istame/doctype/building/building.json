@@ -51,8 +51,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Customer Service Executive",
-   "options": "User",
-   "reqd": 1
+   "options": "User"
   },
   {
    "fieldname": "column_break_4",
@@ -142,7 +141,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-21 15:53:54.077970",
+ "modified": "2024-10-21 17:01:55.856599",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Building",
