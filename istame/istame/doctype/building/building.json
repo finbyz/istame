@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "field:building_name",
  "creation": "2024-08-23 18:00:43.189026",
  "default_view": "List",
@@ -15,6 +16,7 @@
   "service_provider_name",
   "customer_service_executive_contact_no",
   "column_break_4",
+  "disabled",
   "section_break_5",
   "contact_name_1",
   "contact_number_1",
@@ -139,11 +141,17 @@
    "fieldtype": "Select",
    "label": "City",
    "options": "\nDubai\nAbu Dhabi\nSharjah\nQatar"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-23 11:56:27.781550",
+ "modified": "2024-10-23 16:52:11.961975",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Building",
