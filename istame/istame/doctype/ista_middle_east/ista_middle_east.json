@@ -171,8 +171,7 @@
    "fetch_if_empty": 1,
    "fieldname": "sp_contact_number",
    "fieldtype": "Data",
-   "label": "SP Contact Number",
-   "reqd": 1
+   "label": "SP Contact Number"
   },
   {
    "fieldname": "are_you_satisfied_with_the_provided_resolution_",
@@ -241,7 +240,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-22 14:26:32.303769",
+ "modified": "2024-10-23 11:54:38.086297",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",
