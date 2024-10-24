@@ -31,6 +31,8 @@
   "resolution_comments_by_ista_team",
   "closed_by",
   "closure_date_time",
+  "resolved_by",
+  "closed_date_and_time",
   "naming_series",
   "are_you_satisfied_with_the_provided_resolution_",
   "did_the_technician_response_on_time_",
@@ -252,11 +254,21 @@
    "fieldtype": "Select",
    "label": "Refund By",
    "options": "\nClient\nIsta\nNot Applicable\nPending"
+  },
+  {
+   "fieldname": "resolved_by",
+   "fieldtype": "Data",
+   "label": "Closed By"
+  },
+  {
+   "fieldname": "closed_date_and_time",
+   "fieldtype": "Data",
+   "label": "Closed Date and Time"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-24 09:02:36.579784",
+ "modified": "2024-10-24 11:33:08.944575",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",

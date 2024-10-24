@@ -16,8 +16,9 @@ def set_closed_by(self, method):
         self.closed_by = frappe.session.user
         self.closure_date_time = frappe.utils.now()
     
-    if self.service_type ==  "General Inquiry":
-        self.status = "Closed"
+    if self.status ==  "Closed":
+        self.resolved_by = frappe.session.user
+        self.closed_date_and_time = frappe.utils.now()
 
 def calculate_due_date(self, method):
         self.due_date_1 = (datetime.strptime(self.creation, "%Y-%m-%d %H:%M:%S.%f") + timedelta(hours=20))
