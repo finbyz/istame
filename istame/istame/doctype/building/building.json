@@ -12,6 +12,8 @@
   "building_name",
   "building_email",
   "city",
+  "online_portal_payment_status",
+  "refund_by",
   "service_type",
   "service_provider_name",
   "customer_service_executive_contact_no",
@@ -147,11 +149,23 @@
    "fieldname": "disabled",
    "fieldtype": "Check",
    "label": "Disabled"
+  },
+  {
+   "fieldname": "online_portal_payment_status",
+   "fieldtype": "Select",
+   "label": "Online Portal Payment Status",
+   "options": "\nY\nNot Applicable\nNo Payment To Collect\nNo Online Payment - Bank Transfer Only"
+  },
+  {
+   "fieldname": "refund_by",
+   "fieldtype": "Select",
+   "label": "Refund By",
+   "options": "\nClient\nIsta\nNot Applicable\nPending"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-23 16:52:11.961975",
+ "modified": "2024-10-24 08:38:57.950370",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Building",

@@ -17,6 +17,8 @@
   "caller_email",
   "citycountry",
   "building_name",
+  "online_portal_payment_status",
+  "refund_by",
   "building_email",
   "unit_number",
   "service_type",
@@ -236,11 +238,25 @@
    "label": "City/Country",
    "options": "\nDubai\nAbu Dhabi\nSharjah\nQatar",
    "reqd": 1
+  },
+  {
+   "fetch_from": "building_name.online_portal_payment_status",
+   "fieldname": "online_portal_payment_status",
+   "fieldtype": "Select",
+   "label": "Online Portal Payment Status",
+   "options": "\nY\nNot Applicable\nNo Payment To Collect\nNo Online Payment - Bank Transfer Only"
+  },
+  {
+   "fetch_from": "building_name.refund_by",
+   "fieldname": "refund_by",
+   "fieldtype": "Select",
+   "label": "Refund By",
+   "options": "\nClient\nIsta\nNot Applicable\nPending"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-23 11:54:38.086297",
+ "modified": "2024-10-24 09:02:36.579784",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",
