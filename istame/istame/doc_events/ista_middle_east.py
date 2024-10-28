@@ -153,7 +153,7 @@ def send_new_ticket_email(self, method):
                     frappe.log_error(f"Email is not sent : {recipients}")
 
 def send_closed_ticket_email(self, method):
-       if self.status == "Closed":
+       if self.status == "Closed" and self.custom_fcr == "No":
             recipients = []
             if self.caller_email:
                 recipients.append(self.caller_email),
