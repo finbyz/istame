@@ -36,7 +36,7 @@ def format_duration(duration):
     return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
 def send_new_ticket_email(self, method):
-    if self.status == "Open" and self.custom_fcr == "No":
+    if self.has_value_changed("status") and self.status == "Open" and self.custom_fcr == "No":
             recipients = []
             if self.sp_details_email:
                 if self.priority == "Critical" and self.service_type ==  "Regulatory Adherence Queries":
@@ -153,7 +153,7 @@ def send_new_ticket_email(self, method):
                     frappe.log_error(f"Email is not sent : {recipients}")
 
 def send_closed_ticket_email(self, method):
-       if self.status == "Closed" and self.custom_fcr == "No":
+       if self.has_value_changed("status") and self.status == "Closed" and self.custom_fcr == "No":
             recipients = []
             if self.caller_email:
                 recipients.append(self.caller_email),
