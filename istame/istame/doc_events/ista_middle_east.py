@@ -36,7 +36,7 @@ def format_duration(duration):
     return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
 def send_new_ticket_email(self, method):
-    if self.status == "Open":
+    if self.status == "Open" and self.custom_fcr == "No":
             recipients = []
             if self.sp_details_email:
                 if self.priority == "Critical" and self.service_type ==  "Regulatory Adherence Queries":
