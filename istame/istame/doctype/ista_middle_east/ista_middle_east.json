@@ -25,6 +25,7 @@
   "priority",
   "issue_description",
   "sp_details_email",
+  "sp_details_emails",
   "sp_contact_number",
   "column_break_xhxr4",
   "status",
@@ -167,6 +168,7 @@
    "fetch_from": "building_name.service_provider_name",
    "fieldname": "sp_details_email",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "SP Details Email",
    "options": "User"
   },
@@ -264,11 +266,17 @@
    "fieldname": "closed_date_and_time",
    "fieldtype": "Data",
    "label": "Closed Date and Time"
+  },
+  {
+   "fetch_from": "building_name.custom_service_provider_email",
+   "fieldname": "sp_details_emails",
+   "fieldtype": "Data",
+   "label": "SP Details Emails"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-24 11:33:08.944575",
+ "modified": "2024-11-13 15:46:33.491503",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",
