@@ -38,7 +38,7 @@ def format_duration(duration):
 def send_new_ticket_email(self, method):
     if self.has_value_changed("status") and self.status == "Open" and self.custom_fcr == "No":
             recipients = []
-            if self.sp_details_emails:
+            if self.building_email:
                 if self.priority == "Critical" and self.service_type ==  "Regulatory Adherence Queries":
                     cri_email = frappe.get_value("Service", self.service_type, "customer_service_agent")
                     recipients.append(cri_email),
@@ -49,7 +49,7 @@ def send_new_ticket_email(self, method):
                     if self.priority == "Medium":
                         # level1email = self.sp_details_email.split(",\n")
                         # level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
-                        recipients.append(self.sp_details_emails),
+                        recipients.append(self.building_email),
                     if self.priority == "High":
                         level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
                         # high_priority_email = frappe.get_value("Service", self.service_type, "high_priority_email")
