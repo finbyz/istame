@@ -26,9 +26,10 @@ scheduler_events = {
             "istame.api.istame_warning_email"
 		]
 	}
-	# "all":[
-	# 	"jciw.api.make_status_overdue"
-	# ]
+	"all":[
+		# "jciw.api.make_status_overdue",
+		"istame.api.istame_overdue_email"
+	]
 }
 
 # Includes in <head>
