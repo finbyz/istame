@@ -150,19 +150,20 @@ def istame_overdue_email():
 
 				
 				body = """
-				<p> This is to notify that the Ticket {} has been open for 24 hours. Please take action.</p>	
+				<p> This is to notify that the Ticket {0} has been open for 24 hours. Please take action.</p>	
 					<ul>
-					<li>Caller Name</li> : {0}
-					<li>Contact Source</li> : {1}
-					<li>Caller Contact No</li> : {2}
-					<li>Caller Email</li> : {3}
-					<li>Building Name</li> : {4}
-					<li>Unit Number</li> : {5}
-					<li>Service Type</li> : {6}
-					<li>Priority</li> : {7}
-					<li>Building Number</li>:{8}
+					<li>Caller Name</li> : {1}
+					<li>Contact Source</li> : {2}
+					<li>Caller Contact No</li> : {3}
+					<li>Caller Email</li> : {4}
+					<li>Building Name</li> : {5}
+					<li>Unit Number</li> : {6}
+					<li>Service Type</li> : {7}
+					<li>Priority</li> : {8}
+					<li>Building Number</li>:{9}
 					</ul>
             """.format(
+		    			doc.name or '',
 					doc.caller_name or '', 
 					doc.contact_source or '', 
 					doc.caller_contact_number or '', 
