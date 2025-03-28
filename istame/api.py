@@ -1,6 +1,6 @@
 import frappe
 from email.utils import formataddr
-from frappe.utils import now , time_diff_in_hours
+from frappe.utils import now , time_diff_in_hours, split_emails
 from frappe.utils import nowdate, add_days, getdate, get_time, add_months
 import datetime
 from datetime import  timedelta, date, time , datetime
@@ -61,7 +61,7 @@ def escalation_email():
 		if doc.due_date:
 			if str(doc.due_date) <= now() and not doc.escalation_sent:
 				if doc.sp_email_addresses:
-					recipients = doc.sp_email_addresses.split(",\n")
+					recipients = split_emails(doc.sp_email_addresses.replace("\n", ""))
 				header = "<p>Dear {}</p>".format(doc.service_provider_name or 'Sir/Mam')
 				subject = "Escalation. Case Number {} Request due at : {}".format(doc.name,doc.due_date)
 				doc.db_set('escalation_sent',1)
@@ -141,9 +141,9 @@ def istame_overdue_email():
 		if doc.due_date_2 is not None and doc.due_date_2 <= datetime.now() and doc.escalation_sent == "0":
 				doc.db_set('escalation_sent', 1)
 				if doc.sp_details_email:
-					recipients = doc.sp_details_email.split(",\n")
+					recipients = split_emails(doc.sp_details_email.replace("\n", ""))
 				level_2_supervisor_email = frappe.get_value("Service",filters={'name': doc.service_type},fieldname='level_2_supervisor_email')					
-				recipients.append(level_2_supervisor_email)
+				recipients.extend(split_emails(level_2_supervisor_email.replace("\n", ""))
 				header = "<p>This is a warning notification for a second response time getting overdue at {}</p>".format(doc.due_date_2.strftime('%B %d %Y, %I:%M %p'))
 				# subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_2.strftime('%B %d %Y, %I:%M %p'))
 				subject = "<p>Case Overdue - Case Number {0} - Building Name {1}</p>".format(doc.name, doc.building_name)
@@ -197,9 +197,9 @@ def istame_warning_email():
 		if doc.due_date_1 is not None and doc.due_date_1 <= datetime.now() and doc.warning_sent == "0":
 				doc.db_set('warning_sent', 1)
 				if doc.sp_details_email:
-					recipients = doc.sp_details_email.split(",\n")
+					recipients = split_emails(doc.sp_details_email.replace("\n", ""))
 				level_2_supervisor_email = frappe.get_value("Service",filters={'name': doc.service_type},fieldname='level_2_supervisor_email')					
-				recipients.append(level_2_supervisor_email)
+				recipients.extend(split_emails(level_2_supervisor_email.replace("\n", ""))
 				header = "<p>This is a warning notification for a first response time getting overdue at {}</p>".format(doc.due_date_1.strftime('%B %d %Y, %I:%M %p'))
 				# subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_1.strftime('%B %d %Y, %I:%M %p'))
 				subject = "<p>Case Overdue - Case Number {0} - Building Name {1}</p>".format(doc.name, doc.building_name)
