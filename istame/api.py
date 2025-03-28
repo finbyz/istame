@@ -150,7 +150,7 @@ def istame_overdue_email():
 
 				
 				body = """
-				<p> This is to notify that the Ticket {0} has been open for 24 hours. Please take action.</p>	
+				<p> This is to notify that the Ticket {0} has been open for 48 hours. Please take action.</p>	
 					<ul>
 					<li>Caller Name</li> : {1}
 					<li>Contact Source</li> : {2}
@@ -204,7 +204,7 @@ def istame_warning_email():
 				# subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_1.strftime('%B %d %Y, %I:%M %p'))
 				subject = "<p>Case Overdue - Case Number {0} - Building Name {1}</p>".format(doc.name, doc.building_name)
 				body = """
-					<p> This is to notify that the Ticket {0} has been open for 20 hours. Please take action.</p>
+					<p> This is to notify that the Ticket {0} has been open for 24 hours. Please take action.</p>
 					<ul>
 					<li>Caller Name</li> : {1}
 					<li>Contact Source</li> : {2}
