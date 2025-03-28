@@ -21,8 +21,8 @@ def set_closed_by(self, method):
         self.closed_date_and_time = frappe.utils.now()
 
 def calculate_due_date(self, method):
-        self.due_date_1 = (datetime.strptime(self.creation, "%Y-%m-%d %H:%M:%S.%f") + timedelta(hours=20))
-        self.due_date_2 = (datetime.strptime(self.creation, "%Y-%m-%d %H:%M:%S.%f") + timedelta(hours=24))
+        self.due_date_1 = (datetime.strptime(self.creation, "%Y-%m-%d %H:%M:%S.%f") + timedelta(hours=24))
+        self.due_date_2 = (datetime.strptime(self.creation, "%Y-%m-%d %H:%M:%S.%f") + timedelta(hours=48))
 
 
 def calulate_total_hours(self, method):
