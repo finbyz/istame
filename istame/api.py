@@ -199,7 +199,7 @@ def istame_warning_email():
 				if doc.sp_details_email:
 					recipients = split_emails(doc.sp_details_email.replace("\n", ""))
 				level_2_supervisor_email = frappe.get_value("Service",filters={'name': doc.service_type},fieldname='level_2_supervisor_email')					
-				recipients.extend(split_emails(level_2_supervisor_email.replace("\n", ""))
+				recipients.extend(split_emails(level_2_supervisor_email.replace("\n", "")))
 				header = "<p>This is a warning notification for a first response time getting overdue at {}</p>".format(doc.due_date_1.strftime('%B %d %Y, %I:%M %p'))
 				# subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_1.strftime('%B %d %Y, %I:%M %p'))
 				subject = "<p>Case Overdue - Case Number {0} - Building Name {1}</p>".format(doc.name, doc.building_name)
