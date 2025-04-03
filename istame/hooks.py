@@ -22,13 +22,12 @@ scheduler_events = {
 	"cron": {
 		"0/1 * * * *": [
 			"istame.api.escalation_email",
-            "istame.api.istame_overdue_email",
-            "istame.api.istame_warning_email"
 		]
 	},
 	"all":[
 		# "jciw.api.make_status_overdue",
-		"istame.api.istame_overdue_email"
+		"istame.api.istame_overdue_email",
+		"istame.api.istame_warning_email",
 	]
 }
 
