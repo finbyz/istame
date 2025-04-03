@@ -134,7 +134,7 @@ def escalation_email():
 
 	
 def istame_overdue_email():
-	data = frappe.get_list("Ista Middle East",filters = {'status':['not in',['Closed','Resolved']},fields = ['name', 'building_name','service_type'])
+	data = frappe.get_list("Ista Middle East",filters = {'status':['not in',['Closed','Resolved']]},fields = ['name', 'building_name','service_type'])
 	for row in data:
 		doc = frappe.get_doc("Ista Middle East",row.name)
 		recipients = []
@@ -190,7 +190,7 @@ def istame_overdue_email():
 						frappe.log_error(f"Email is not sent : {recipients}  {doc.name}")
 
 def istame_warning_email():
-	data = frappe.get_list("Ista Middle East",filters = {'status':['not in',['Closed','Resolved']},fields = ['name', 'building_name','service_type'])
+	data = frappe.get_list("Ista Middle East",filters = {'status':['not in',['Closed','Resolved']]},fields = ['name', 'building_name','service_type'])
 	for row in data:
 		doc = frappe.get_doc("Ista Middle East",row.name)
 		recipients = []
