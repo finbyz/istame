@@ -138,7 +138,7 @@ def istame_overdue_email():
 	for row in data:
 		doc = frappe.get_doc("Ista Middle East",row.name)
 		recipients = []
-		if doc.due_date_2 is not None and doc.due_date_2 <= datetime.now() and doc.escalation_sent == "0":
+		if doc.due_date_2 is not None and str(doc.due_date_2) <= now() and doc.escalation_sent == "0":
 				doc.db_set('escalation_sent', 1)
 				if doc.sp_details_email:
 					recipients = split_emails(doc.sp_details_email.replace("\n", ""))
@@ -194,7 +194,7 @@ def istame_warning_email():
 	for row in data:
 		doc = frappe.get_doc("Ista Middle East",row.name)
 		recipients = []
-		if doc.due_date_1 is not None and doc.due_date_1 <= datetime.now() and doc.warning_sent == "0":
+		if doc.due_date_1 is not None and str(sdoc.due_date_1) <= now() and doc.warning_sent == "0":
 				doc.db_set('warning_sent', 1)
 				if doc.sp_details_email:
 					recipients = split_emails(doc.sp_details_email.replace("\n", ""))
