@@ -146,7 +146,7 @@ def istame_overdue_email():
 				recipients.extend(split_emails(level_2_supervisor_email.replace("\n", "")))
 				header = "<p>This is a warning notification for a second response time getting overdue at {}</p>".format(doc.due_date_2.strftime('%B %d %Y, %I:%M %p'))
 				# subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_2.strftime('%B %d %Y, %I:%M %p'))
-				subject = "<p>Case Overdue - Case Number {0} - Building Name {1}</p>".format(doc.name, doc.building_name)
+				subject = "Case Overdue - Case Number {0} - Building Name {1}".format(doc.name, doc.building_name)
 
 				
 				body = """
@@ -189,6 +189,58 @@ def istame_overdue_email():
 					except:
 						frappe.log_error(f"Email is not sent : {recipients}  {doc.name}")
 
+		if doc.due_date_3 is not None and str(doc.due_date_3) <= now() and doc.escalation_second_sent == "0":
+				doc.db_set('escalation_second_sent', 1)
+				if doc.sp_details_email:
+					recipients = split_emails(doc.sp_details_email.replace("\n", ""))
+				level_2_supervisor_email = frappe.get_value("Service",filters={'name': doc.service_type},fieldname='level_2_supervisor_email')					
+				recipients.extend(split_emails(level_2_supervisor_email.replace("\n", "")))
+				header = "<p>This is a warning notification for a second response time getting overdue at {}</p>".format(doc.due_date_3.strftime('%B %d %Y, %I:%M %p'))
+				# subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_2.strftime('%B %d %Y, %I:%M %p'))
+				subject = "Case Overdue - Case Number {0} - Building Name {1}".format(doc.name, doc.building_name)
+
+				
+				body = """
+				<p> This is to notify that the Ticket {0} has been open for 72 hours. Please take action.</p>	
+					<ul>
+					<li>Caller Name</li> : {1}
+					<li>Contact Source</li> : {2}
+					<li>Caller Contact No</li> : {3}
+					<li>Caller Email</li> : {4}
+					<li>Building Name</li> : {5}
+					<li>Unit Number</li> : {6}
+					<li>Service Type</li> : {7}
+					<li>Priority</li> : {8}
+					<li>Building Number</li>:{9}
+					</ul>
+            """.format(
+		    			doc.name or '',
+					doc.caller_name or '', 
+					doc.contact_source or '', 
+					doc.caller_contact_number or '', 
+					doc.caller_email or '', 
+					doc.building_name or '', 
+					doc.unit_number or '', 
+					doc.service_type or '', 
+					doc.priority or '',
+					doc.custom_building_number or ''
+				)
+
+				message = header + body
+				if recipients:
+					try:
+						frappe.sendmail(
+							recipients=recipients,
+							cc = '',
+							subject = subject ,
+							#sender = sender,
+							message = message,
+							now = 1
+						)
+					except:
+						frappe.log_error(f"Email is not sent : {recipients}  {doc.name}")	
+		
+
 def istame_warning_email():
 	data = frappe.get_list("Ista Middle East",filters = {'status':['not in',['Closed','Resolved']]},fields = ['name', 'building_name','service_type'])
 	for row in data:
@@ -202,7 +254,7 @@ def istame_warning_email():
 				recipients.extend(split_emails(level_2_supervisor_email.replace("\n", "")))
 				header = "<p>This is a warning notification for a first response time getting overdue at {}</p>".format(doc.due_date_1.strftime('%B %d %Y, %I:%M %p'))
 				# subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_1.strftime('%B %d %Y, %I:%M %p'))
-				subject = "<p>Case Overdue - Case Number {0} - Building Name {1}</p>".format(doc.name, doc.building_name)
+				subject = "Case Overdue - Case Number {0} - Building Name {1}".format(doc.name, doc.building_name)
 				body = """
 					<p> This is to notify that the Ticket {0} has been open for 24 hours. Please take action.</p>
 					<ul>

@@ -39,10 +39,12 @@
   "did_the_technician_response_on_time_",
   "any_general_comments_to_improve_our_services",
   "escalation_sent",
+  "escalation_second_sent",
   "warning_sent",
   "total_hour",
   "due_date_1",
-  "due_date_2"
+  "due_date_2",
+  "due_date_3"
  ],
  "fields": [
   {
@@ -271,11 +273,21 @@
    "fieldname": "sp_details_emails",
    "fieldtype": "Data",
    "label": "SP Details Emails"
+  },
+  {
+   "fieldname": "due_date_3",
+   "fieldtype": "Datetime",
+   "label": "Due_Date 3"
+  },
+  {
+   "fieldname": "escalation_second_sent",
+   "fieldtype": "Data",
+   "label": "Escalation Second Sent"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-14 15:46:33.491503",
+ "modified": "2025-05-23 11:24:08.414082",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",

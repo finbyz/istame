@@ -20,10 +20,24 @@ def set_closed_by(self, method):
         self.resolved_by = frappe.session.user
         self.closed_date_and_time = frappe.utils.now()
 
-def calculate_due_date(self, method):
-        self.due_date_1 = (datetime.strptime(self.creation, "%Y-%m-%d %H:%M:%S.%f") + timedelta(hours=24))
-        self.due_date_2 = (datetime.strptime(self.creation, "%Y-%m-%d %H:%M:%S.%f") + timedelta(hours=48))
+def get_next_weekday(date):
+    while date.weekday() in [5, 6]:  # While Saturday (5) or Sunday (6)
+        date += timedelta(days=1)
+    return date
 
+def get_next_weekday_after(date):
+    next_day = date + timedelta(days=1)
+    return get_next_weekday(next_day)
+
+def calculate_due_date(self, method):
+    
+    creation_datetime = datetime.strptime(self.creation, "%Y-%m-%d %H:%M:%S.%f")
+
+    due_date_1 = creation_datetime + timedelta(hours=24)
+    self.due_date_1 = get_next_weekday(due_date_1)
+
+    self.due_date_2 = get_next_weekday_after(self.due_date_1)
+    self.due_date_3 = get_next_weekday_after(self.due_date_2)
 
 def calulate_total_hours(self, method):
 	if self.creation:
