@@ -20,24 +20,33 @@ def set_closed_by(self, method):
         self.resolved_by = frappe.session.user
         self.closed_date_and_time = frappe.utils.now()
 
-def get_next_weekday(date):
-    while date.weekday() in [5, 6]:  # While Saturday (5) or Sunday (6)
+def get_holidays():
+    """Returns a list of holiday dates"""
+    return set(h.holiday_date for h in frappe.get_all("Holiday", fields=["holiday_date"]))
+
+def get_next_valid_date(date, holidays):
+    """Skips weekends and holidays."""
+    while date.weekday() in [5, 6] or date.date() in holidays:
         date += timedelta(days=1)
     return date
 
-def get_next_weekday_after(date):
+def get_next_weekday(date, holidays):
+    return get_next_valid_date(date, holidays)
+
+def get_next_weekday_after(date, holidays):
     next_day = date + timedelta(days=1)
-    return get_next_weekday(next_day)
+    return get_next_valid_date(next_day, holidays)
 
 def calculate_due_date(self, method):
-    
+    holidays = get_holidays()
+
     creation_datetime = datetime.strptime(self.creation, "%Y-%m-%d %H:%M:%S.%f")
 
     due_date_1 = creation_datetime + timedelta(hours=24)
-    self.due_date_1 = get_next_weekday(due_date_1)
+    self.due_date_1 = get_next_weekday(due_date_1,holidays)
 
-    self.due_date_2 = get_next_weekday_after(self.due_date_1)
-    self.due_date_3 = get_next_weekday_after(self.due_date_2)
+    self.due_date_2 = get_next_weekday_after(self.due_date_1,holidays)
+    self.due_date_3 = get_next_weekday_after(self.due_date_2,holidays)
 
 def calulate_total_hours(self, method):
 	if self.creation:
