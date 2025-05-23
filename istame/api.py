@@ -196,8 +196,8 @@ def istame_overdue_email():
 				doc.db_set('escalation_second_sent', 1)
 				if doc.sp_details_email:
 					recipients = split_emails(doc.sp_details_email.replace("\n", ""))
-				level_2_supervisor_email = frappe.get_value("Service",filters={'name': doc.service_type},fieldname='level_2_supervisor_email')					
-				recipients.extend(split_emails(level_2_supervisor_email.replace("\n", "")))
+				level_4_supervisor_email = frappe.get_value("Service",filters={'name': doc.service_type},fieldname='level_4_supervisor_email')					
+				recipients.extend(split_emails(level_4_supervisor_email.replace("\n", "")))
 				header = "<p>Dear Team,<br><br>This is a warning notification for a third response time getting overdue at {}</p>".format(doc.due_date_3.strftime('%B %d %Y, %I:%M %p'))
 				# subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_2.strftime('%B %d %Y, %I:%M %p'))
 				subject = "Case Overdue - Case Number {0} - Building Name {1}".format(doc.name, doc.building_name)
