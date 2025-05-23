@@ -19,6 +19,7 @@
   "column_break_two5o",
   "level_2_supervisor_email",
   "level_3_supervisor_email",
+  "level_4_supervisor_email",
   "column_break_nscpm",
   "level_2_supervisor_contact",
   "level_3_supervisor_contact"
@@ -102,10 +103,15 @@
    "fieldname": "high_priority_email",
    "fieldtype": "Small Text",
    "label": "High Priority Email"
+  },
+  {
+   "fieldname": "level_4_supervisor_email",
+   "fieldtype": "Small Text",
+   "label": "Level 4 Supervisor Email"
   }
  ],
  "links": [],
- "modified": "2024-09-04 14:23:48.184744",
+ "modified": "2025-05-23 16:13:22.163639",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Service",
