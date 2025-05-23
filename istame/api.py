@@ -144,24 +144,27 @@ def istame_overdue_email():
 					recipients = split_emails(doc.sp_details_email.replace("\n", ""))
 				level_2_supervisor_email = frappe.get_value("Service",filters={'name': doc.service_type},fieldname='level_2_supervisor_email')					
 				recipients.extend(split_emails(level_2_supervisor_email.replace("\n", "")))
-				header = "<p>This is a warning notification for a second response time getting overdue at {}</p>".format(doc.due_date_2.strftime('%B %d %Y, %I:%M %p'))
+				header = "<p>Dear Team,<br><br>This is a warning notification for a second response time getting overdue at {}</p>".format(doc.due_date_2.strftime('%B %d %Y, %I:%M %p'))
 				# subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_2.strftime('%B %d %Y, %I:%M %p'))
 				subject = "Case Overdue - Case Number {0} - Building Name {1}".format(doc.name, doc.building_name)
 
 				
 				body = """
-				<p> This is to notify that the Ticket {0} has been open for 48 hours. Please take action.</p>	
-					<ul>
-					<li>Caller Name</li> : {1}
-					<li>Contact Source</li> : {2}
-					<li>Caller Contact No</li> : {3}
-					<li>Caller Email</li> : {4}
-					<li>Building Name</li> : {5}
-					<li>Unit Number</li> : {6}
-					<li>Service Type</li> : {7}
-					<li>Priority</li> : {8}
-					<li>Building Number</li>:{9}
-					</ul>
+					<p> This is to notify that the Ticket {0} has been open for 48 hours. Please take action.</p>	
+					<table style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+                    <tr><td><strong>&#8226; Caller Name :</strong></td><td style="padding-left: 20px;">{1}</td></tr>
+                    <tr><td><strong>&#8226; Contact Source :</strong></td><td style="padding-left: 20px;">{2}</td></tr>
+                    <tr><td><strong>&#8226; Caller Contact No :</strong></td><td style="padding-left: 20px;">{3}</td></tr>
+                    <tr><td><strong>&#8226; Caller Email :</strong></td><td style="padding-left: 20px;">{4}</td></tr>
+                    <tr><td><strong>&#8226; Building Name :</strong></td><td style="padding-left: 20px;">{5}</td></tr>
+                    <tr><td><strong>&#8226; Unit Number :</strong></td><td style="padding-left: 20px;">{6}</td></tr>
+                    <tr><td><strong>&#8226; Service Type :</strong></td><td style="padding-left: 20px;">{7}</td></tr>
+                    <tr><td><strong>&#8226; Priority :</strong></td><td style="padding-left: 20px;">{8}</td></tr>
+                    <tr><td><strong>&#8226; Building Number :</strong></td><td style="padding-left: 20px;">{9}</td></tr>
+                    </table>
+					<br>
+					<br>
+					<p>Best Regards,<br>Ista Customer Service Team</p>
             """.format(
 		    			doc.name or '',
 					doc.caller_name or '', 
@@ -195,24 +198,27 @@ def istame_overdue_email():
 					recipients = split_emails(doc.sp_details_email.replace("\n", ""))
 				level_2_supervisor_email = frappe.get_value("Service",filters={'name': doc.service_type},fieldname='level_2_supervisor_email')					
 				recipients.extend(split_emails(level_2_supervisor_email.replace("\n", "")))
-				header = "<p>This is a warning notification for a second response time getting overdue at {}</p>".format(doc.due_date_3.strftime('%B %d %Y, %I:%M %p'))
+				header = "<p>Dear Team,<br><br>This is a warning notification for a third response time getting overdue at {}</p>".format(doc.due_date_3.strftime('%B %d %Y, %I:%M %p'))
 				# subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_2.strftime('%B %d %Y, %I:%M %p'))
 				subject = "Case Overdue - Case Number {0} - Building Name {1}".format(doc.name, doc.building_name)
 
 				
 				body = """
-				<p> This is to notify that the Ticket {0} has been open for 72 hours. Please take action.</p>	
-					<ul>
-					<li>Caller Name</li> : {1}
-					<li>Contact Source</li> : {2}
-					<li>Caller Contact No</li> : {3}
-					<li>Caller Email</li> : {4}
-					<li>Building Name</li> : {5}
-					<li>Unit Number</li> : {6}
-					<li>Service Type</li> : {7}
-					<li>Priority</li> : {8}
-					<li>Building Number</li>:{9}
-					</ul>
+					<p> This is to notify that the Ticket {0} has been open for 72 hours. Please take action.</p>	
+					<table style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+                    <tr><td><strong>&#8226; Caller Name :</strong></td><td style="padding-left: 20px;">{1}</td></tr>
+                    <tr><td><strong>&#8226; Contact Source :</strong></td><td style="padding-left: 20px;">{2}</td></tr>
+                    <tr><td><strong>&#8226; Caller Contact No :</strong></td><td style="padding-left: 20px;">{3}</td></tr>
+                    <tr><td><strong>&#8226; Caller Email :</strong></td><td style="padding-left: 20px;">{4}</td></tr>
+                    <tr><td><strong>&#8226; Building Name :</strong></td><td style="padding-left: 20px;">{5}</td></tr>
+                    <tr><td><strong>&#8226; Unit Number :</strong></td><td style="padding-left: 20px;">{6}</td></tr>
+                    <tr><td><strong>&#8226; Service Type :</strong></td><td style="padding-left: 20px;">{7}</td></tr>
+                    <tr><td><strong>&#8226; Priority :</strong></td><td style="padding-left: 20px;">{8}</td></tr>
+                    <tr><td><strong>&#8226; Building Number :</strong></td><td style="padding-left: 20px;">{9}</td></tr>
+                    </table>
+					<br>
+					<br>
+					<p>Best Regards,<br>Ista Customer Service Team</p>
             """.format(
 		    			doc.name or '',
 					doc.caller_name or '', 
@@ -252,22 +258,25 @@ def istame_warning_email():
 					recipients = split_emails(doc.sp_details_email.replace("\n", ""))
 				level_2_supervisor_email = frappe.get_value("Service",filters={'name': doc.service_type},fieldname='level_2_supervisor_email')					
 				recipients.extend(split_emails(level_2_supervisor_email.replace("\n", "")))
-				header = "<p>This is a warning notification for a first response time getting overdue at {}</p>".format(doc.due_date_1.strftime('%B %d %Y, %I:%M %p'))
+				header = "<p>Dear Team,<br><br>This is a warning notification for a first response time getting overdue at {}</p>".format(doc.due_date_1.strftime('%B %d %Y, %I:%M %p'))
 				# subject = "SLA Escalation. Ticket Number {} Request due at : {}".format(doc.name,doc.due_date_1.strftime('%B %d %Y, %I:%M %p'))
 				subject = "Case Overdue - Case Number {0} - Building Name {1}".format(doc.name, doc.building_name)
 				body = """
 					<p> This is to notify that the Ticket {0} has been open for 24 hours. Please take action.</p>
-					<ul>
-					<li>Caller Name</li> : {1}
-					<li>Contact Source</li> : {2}
-					<li>Caller Contact No</li> : {3}
-					<li>Caller Email</li> : {4}
-					<li>Building Name</li> : {5}
-					<li>Unit Number</li> : {6}
-					<li>Service Type</li> : {7}
-					<li>Priority</li> : {8}
-     				<li>Building Number</li>:{9}
-					</ul>
+					<table style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+                    <tr><td><strong>&#8226; Caller Name :</strong></td><td style="padding-left: 20px;">{1}</td></tr>
+                    <tr><td><strong>&#8226; Contact Source :</strong></td><td style="padding-left: 20px;">{2}</td></tr>
+                    <tr><td><strong>&#8226; Caller Contact No :</strong></td><td style="padding-left: 20px;">{3}</td></tr>
+                    <tr><td><strong>&#8226; Caller Email :</strong></td><td style="padding-left: 20px;">{4}</td></tr>
+                    <tr><td><strong>&#8226; Building Name :</strong></td><td style="padding-left: 20px;">{5}</td></tr>
+                    <tr><td><strong>&#8226; Unit Number :</strong></td><td style="padding-left: 20px;">{6}</td></tr>
+                    <tr><td><strong>&#8226; Service Type :</strong></td><td style="padding-left: 20px;">{7}</td></tr>
+                    <tr><td><strong>&#8226; Priority :</strong></td><td style="padding-left: 20px;">{8}</td></tr>
+                    <tr><td><strong>&#8226; Building Number :</strong></td><td style="padding-left: 20px;">{9}</td></tr>
+                    </table>
+					<br>
+					<br>
+					<p>Best Regards,<br>Ista Customer Service Team</p>
 			""".format(
 					doc.name or '',
 					doc.caller_name or '', 
