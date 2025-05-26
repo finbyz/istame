@@ -277,17 +277,20 @@
   {
    "fieldname": "due_date_3",
    "fieldtype": "Datetime",
+   "hidden": 1,
    "label": "Due_Date 3"
   },
   {
+   "default": "0",
    "fieldname": "escalation_second_sent",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Escalation Second Sent"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-23 11:24:08.414082",
+ "modified": "2025-05-26 13:46:35.795226",
  "modified_by": "Administrator",
  "module": "istame",
  "name": "Ista Middle East",
