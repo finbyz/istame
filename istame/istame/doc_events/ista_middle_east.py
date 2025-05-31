@@ -1,6 +1,7 @@
 import frappe
 from frappe.model.document import Document
 from frappe.utils import nowdate, add_days, getdate, get_time, time_diff_in_hours
+from frappe.utils import split_emails
 import datetime
 from datetime import  timedelta, date, time, datetime
 
@@ -64,26 +65,32 @@ def send_new_ticket_email(self, method):
             if self.building_email:
                 if self.priority == "Critical" and self.service_type ==  "Regulatory Adherence Queries":
                     cri_email = frappe.get_value("Service", self.service_type, "customer_service_agent")
-                    recipients.append(cri_email),
+                    # recipients.append(cri_email),
+                    recipients.extend(split_emails(cri_email.replace("\n", "")))
                 else:
                     if self.priority == "Normal":
                     # recipients = self.sp_details_email.split(",\n")
-                        recipients.append(self.building_email),
+                        recipients.extend(split_emails(self.building_email.replace("\n", "")))
+                        
                     if self.priority == "Medium":
                         # level1email = self.sp_details_email.split(",\n")
                         # level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
-                        recipients.append(self.building_email),
+                        # recipients.append(self.building_email)
+                        recipients.extend(split_emails(self.building_email.replace("\n", "")))
                     if self.priority == "High":
                         level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
                         # high_priority_email = frappe.get_value("Service", self.service_type, "high_priority_email")
                         # recipients.append(level2email),
                         # recipients.append(level3email),
-                        recipients.append(level2email),
+                        # recipients.append(level2email),
+                        recipients.extend(split_emails(level2email.replace("\n", "")))
                     if self.priority == "Overdue From One Week":
                         level2email = frappe.get_value("Service", self.service_type, "level_2_supervisor_email")
                         level3email = frappe.get_value("Service", self.service_type, "level_3_supervisor_email")
-                        recipients.append(level3email),
-                        recipients.append(level2email),
+                        # recipients.append(level3email),
+                        # recipients.append(level2email),
+                        recipients.extend(split_emails(level2email.replace("\n", "")))
+                        recipients.extend(split_emails(level3email.replace("\n", "")))
                 if self.priority == "Critical" and self.service_type !=  "Regulatory Adherence Queries":
                     frappe.throw("You Can Set Priority Critical only for Regulatory Adherence Queries")
 
@@ -179,7 +186,8 @@ def send_closed_ticket_email(self, method):
        if self.has_value_changed("status") and self.status == "Closed" and self.custom_fcr == "No":
             recipients = []
             if self.caller_email:
-                recipients.append(self.caller_email),
+                # recipients.append(self.caller_email)
+                recipients.extend(split_emails(self.caller_email.replace("\n", "")))
             
             header = "<p>Dear Esteemed Customer,</p>"
             subject = "{0} - {1} - {2}".format(self.building_name , self.unit_number, self.service_type)
