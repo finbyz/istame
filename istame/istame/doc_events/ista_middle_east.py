@@ -41,9 +41,12 @@ def get_next_weekday_after(date, holidays):
 def calculate_due_date(self, method):
     holidays = get_holidays()
 
-    creation_datetime = datetime.strptime(self.creation, "%Y-%m-%d %H:%M:%S.%f")
+    creation_datetime = datetime.strptime("2025-05-31 11:42:51.509735", "%Y-%m-%d %H:%M:%S.%f")
 
-    due_date_1 = creation_datetime + timedelta(hours=24)
+    # If created on weekend or holiday, start from next working day
+    start_datetime = get_next_valid_date(creation_datetime, holidays)
+
+    due_date_1 = start_datetime + timedelta(hours=24)
     self.due_date_1 = get_next_weekday(due_date_1,holidays)
 
     self.due_date_2 = get_next_weekday_after(self.due_date_1,holidays)
